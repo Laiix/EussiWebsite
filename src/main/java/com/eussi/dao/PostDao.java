@@ -2,7 +2,7 @@ package com.eussi.dao;
 
 import org.springframework.stereotype.Repository;
 
-import com.smart.domain.Post;
+import com.eussi.domain.Post;
 
 /**
  * Post的DAO类

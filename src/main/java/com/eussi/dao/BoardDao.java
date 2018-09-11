@@ -1,6 +1,7 @@
 package com.eussi.dao;
 
-import com.smart.domain.Board;
+
+import com.eussi.domain.Board;
 import org.springframework.stereotype.Repository;
 
 import java.util.Iterator;

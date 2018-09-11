@@ -2,7 +2,7 @@ package com.eussi.dao;
 
 import org.springframework.stereotype.Repository;
 
-import com.smart.domain.LoginLog;
+import com.eussi.domain.LoginLog;
 
 /**
  * Post的DAO类

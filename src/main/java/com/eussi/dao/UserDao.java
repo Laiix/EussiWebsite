@@ -3,7 +3,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.smart.domain.User;
+import com.eussi.domain.User;
 /**
  * User对象Dao
  */
