@@ -8,7 +8,7 @@
     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 	<!-- 扫描com.smart.dao包下所有标注@Repository的DAO组件 -->
     <context:component-scan base-package="com.eussi.dao"/>
-    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <context:property-placeholder location="classpath:conf/dev/jdbc.propertiesties"/>
 
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource"
