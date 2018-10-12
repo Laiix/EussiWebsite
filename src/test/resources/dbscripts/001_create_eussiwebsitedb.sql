@@ -5,7 +5,7 @@ CREATE TABLE `t_board` (
   `topic_num` int(11) NOT NULL default '0' COMMENT '帖子数目',
   PRIMARY KEY  (`board_id`),
   KEY `AK_Board_NAME` (`board_name`)
-) ENGINE=InnoDB=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 CREATE TABLE `t_board_manager` (
   `board_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE `t_post` (
   `create_time` date NOT NULL COMMENT '创建时间',
   PRIMARY KEY  (`post_id`),
   KEY `IDX_POST_TOPIC_ID` (`topic_id`)
-) ENGINE=InnoDB=25 DEFAULT CHARSET=utf8 COMMENT='帖子';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='帖子';
 CREATE TABLE `t_topic` (
   `topic_id` int(11) NOT NULL COMMENT '帖子ID',
   `board_id` int(11) NOT NULL COMMENT '所属论坛',
@@ -43,7 +43,7 @@ CREATE TABLE `t_topic` (
   PRIMARY KEY  (`topic_id`),
   KEY `IDX_TOPIC_USER_ID` (`user_id`),
   KEY `IDX_TOPIC_TITLE` (`topic_title`)
-) ENGINE=InnoDB=24 DEFAULT CHARSET=utf8 COMMENT='话题';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='话题';
 CREATE TABLE `t_user` (
   `user_id` int(11) NOT NULL COMMENT '用户Id',
   `user_name` varchar(30) NOT NULL COMMENT '用户名',
@@ -55,4 +55,4 @@ CREATE TABLE `t_user` (
   `last_ip` varchar(20) default NULL COMMENT '最后登陆IP',
   PRIMARY KEY  (`user_id`),
   KEY `AK_AK_USER_USER_NAME` (`user_name`)
-) ENGINE=InnoDB=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

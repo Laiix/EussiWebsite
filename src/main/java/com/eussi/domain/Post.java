@@ -28,7 +28,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 public class Post extends BaseDomain {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "post_id")
 	private int postId;
 

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.eussi.constant.CommonConstants;
 import com.eussi.service.ForumService;
+import com.eussi.utils.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -120,7 +121,8 @@ public class BoardManageController extends BaseController {
 	 */
 	@RequestMapping(value = "/board/addPost")
 	public String addPost(HttpServletRequest request, Post post) {
-		post.setCreateTime(new Date());
+		post.setPostId(UUIDUtils.getDigestUUID());
+        post.setCreateTime(new Date());
 		post.setUser(getSessionUser(request));
 		forumService.addPost(post);
 		String targetUrl = "/board/listTopicPosts-"

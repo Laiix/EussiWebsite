@@ -3,6 +3,7 @@ package com.eussi.service;
 import java.util.Date;
 import java.util.List;
 
+import com.eussi.utils.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,8 +45,9 @@ public class ForumService {
 	 * @param topic
 	 */
 	public void addTopic(Topic topic) {
+        topic.setTopicId(UUIDUtils.getDigestUUID());
 		Board board = (Board) boardDao.get(topic.getBoardId());
-		board.setTopicNum(board.getTopicNum() + 1);	
+		board.setTopicNum(board.getTopicNum() + 1);	//该board下的topic数加一
 		topicDao.save(topic);
 		//topicDao.getHibernateTemplate().flush();
 		
@@ -89,7 +91,8 @@ public class ForumService {
 	 * @param post
 	 */
 	public void addPost(Post post){
-		postDao.save(post);
+		post.setPostId(UUIDUtils.getDigestUUID());
+        postDao.save(post);
 		
 		User user = post.getUser();
 		user.setCredit(user.getCredit() + 5);
@@ -129,6 +132,7 @@ public class ForumService {
 	 * @param board
 	 */
 	public void addBoard(Board board) {
+        board.setBoardId(UUIDUtils.getDigestUUID());
 		boardDao.save(board);
 	}
 	

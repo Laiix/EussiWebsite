@@ -19,7 +19,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Table(name = "t_login_log")
 public class LoginLog extends BaseDomain {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "login_log_id")
 	private int loginLogId;
 	

@@ -29,7 +29,6 @@ public class Topic extends BaseDomain {
 	public static final int NOT_DIGEST_TOPIC = 0;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "topic_id")
 	private int topicId;
 

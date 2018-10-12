@@ -4,7 +4,7 @@
 <hibernate-mapping >
 	<class name="com.eussi.domain.Post" table="t_post" discriminator-value="2">
 		<id name="postId" column="post_id">
-			<generator class="identity" />
+			<generator class="assigned" />
 		</id>
 		<discriminator column="post_type"/>
 		<property name="postTitle" column="post_title" />

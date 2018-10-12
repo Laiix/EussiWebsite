@@ -4,7 +4,7 @@
 <hibernate-mapping>
 	<class name="com.eussi.domain.User" table="t_user" >
 		<id name="userId" column="user_id">
-			<generator class="identity" />
+			<generator class="assigned" />
 		</id>
 		<property name="userName" column="user_name" />
 		<property name="password"/>

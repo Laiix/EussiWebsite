@@ -24,7 +24,6 @@ public class Board extends BaseDomain {
     //GenerationType.IDENTITY 主键由数据库自动生成（主要是自动增长型）
 
     @Id
-	@GeneratedValue(strategy = GenerationType.AUTO)//主键由程序控制
 	@Column(name = "board_id")
 	private int boardId;
 

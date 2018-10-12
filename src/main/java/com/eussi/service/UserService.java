@@ -2,6 +2,8 @@ package com.eussi.service;
 
 import java.util.Date;
 import java.util.List;
+
+import com.eussi.utils.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.eussi.dao.LoginLogDao;
@@ -38,6 +40,7 @@ public class UserService {
 		if(u != null){
 		    throw new UserExistException("用户名已经存在");
 		}else{
+            user.setUserId(UUIDUtils.getDigestUUID());
 		    user.setCredit(100);
             user.setUserType(1);
             userDao.save(user);
@@ -117,6 +120,7 @@ public class UserService {
 	public void loginSuccess(User user) {
 		user.setCredit( 5 + user.getCredit());
 		LoginLog loginLog = new LoginLog();
+        loginLog.setLoginLogId(UUIDUtils.getDigestUUID());
 		loginLog.setUser(user);
 		loginLog.setIp(user.getLastIp());
 		loginLog.setLoginDate(new Date());

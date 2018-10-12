@@ -4,7 +4,7 @@
 <hibernate-mapping>
 	<class name="com.eussi.domain.LoginLog" table="t_login_log" >
 		<id name="loginLogId" column="login_log_id">
-			<generator class="identity" />
+			<generator class="assigned" />
 		</id>
 		<property name="ip" column="ip"/>
 		<property name="loginDate" column="login_datetime" type="date"/>

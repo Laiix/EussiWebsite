@@ -23,7 +23,7 @@
 用户注册信息：
 <form action="<c:url value="/register.html" />" method="post" onsubmit="return mycheck()">
 <c:if test="${!empty errorMsg}">
-   <div style="color=red">${errorMsg}</div>
+   <div style="color:red">${errorMsg}</div>
 </c:if>
 <table border="1px" width="60%">
 	<tr>

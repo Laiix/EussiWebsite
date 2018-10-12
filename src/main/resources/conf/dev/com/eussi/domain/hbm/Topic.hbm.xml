@@ -4,7 +4,7 @@
 <hibernate-mapping >
 	<class name="com.eussi.domain.Topic" table="t_topic">
 		<id name="topicId" column="topic_id">
-			<generator class="identity" />
+			<generator class="assigned" />
 		</id>
 		<property name="topicTitle" column="topic_title" />
 
