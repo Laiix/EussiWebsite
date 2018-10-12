@@ -288,6 +288,7 @@
     </profiles>
 
     <build>
+        <finalName>projectname</finalName>
         <resources>
             <resource>
                 <directory>${basedir}/src/main/resources</directory>
