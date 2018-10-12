@@ -23,12 +23,12 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Table(name = "t_post")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "post_type", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "post_type", discriminatorType = DiscriminatorType.STRING)//多个entity对应同一张表，用一个字段区分
 @DiscriminatorValue("1")
 public class Post extends BaseDomain {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "post_id")
 	private int postId;
 

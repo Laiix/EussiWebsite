@@ -20,7 +20,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)//不严格的读写模式则不会的缓存数据加锁
 @Table(name = "t_user")
 public class User extends BaseDomain {
     /**
@@ -41,7 +41,7 @@ public class User extends BaseDomain {
     public static final int NORMAL_USER = 1;
     
     @Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id")
     private int userId;
 
@@ -57,7 +57,7 @@ public class User extends BaseDomain {
 	@Column(name = "last_visit")
 	private Date lastVisit;
     
-	private String password;
+	private String password; //未添加Column，列名和属性名相同
 
 	private int locked ;
 

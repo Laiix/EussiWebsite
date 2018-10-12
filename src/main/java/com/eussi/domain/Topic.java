@@ -29,7 +29,7 @@ public class Topic extends BaseDomain {
 	public static final int NOT_DIGEST_TOPIC = 0;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "topic_id")
 	private int topicId;
 
@@ -43,7 +43,7 @@ public class Topic extends BaseDomain {
 	@Column(name = "board_id")
 	private int boardId;
 
-	@Transient
+	@Transient //表示该属性并非一个到数据库表的字段的映射,ORM框架将忽略该属性
 	private MainPost mainPost = new MainPost();
 
 	@Column(name = "last_post")

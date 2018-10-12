@@ -1,61 +1,87 @@
 package com.eussi.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-
-/**
- * Created by wangxueming on 2018/1/2.
- */
 
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Table(name = "t_board")
-public class Board extends BaseDomain{
+public class Board extends BaseDomain {
+
+    //GenerationType.IDENTITY 主键由数据库自动生成（主要是自动增长型）
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "board_id")
-    private int boardId;
+	@GeneratedValue(strategy = GenerationType.AUTO)//主键由程序控制
+	@Column(name = "board_id")
+	private int boardId;
 
-    @Column(name = "board_name")
-    private String boradName;
+	@Column(name = "board_name")
+	private String boardName;
 
-    @Column(name = "board_desc")
-    private String boardDesc;
+	@Column(name = "board_desc")
+	private String boardDesc;
 
-    @Column(name = "topic_num")
-    private int topicNum;
+	@Column(name = "topic_num")
+	private int topicNum ;
 
-    public int getBoardId() {
-        return boardId;
-    }
+    //mappedBy，本类防止控制和另一方的关联关系，所填内容必为本类在另一方的字段名。mappedBy和@JoinTable是互斥的
+    //用户能够建立与board的关系，但是board无法建立他们之间的关系
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "manBoards", fetch = FetchType.LAZY)
+	private Set<User> users = new HashSet<User>();
 
-    public void setBoardId(int boardId) {
-        this.boardId = boardId;
-    }
+	public int getTopicNum() {
+		return topicNum;
+	}
 
-    public String getBoradName() {
-        return boradName;
-    }
+	public void setTopicNum(int topicNum) {
+		this.topicNum = topicNum;
+	}
 
-    public void setBoradName(String boradName) {
-        this.boradName = boradName;
-    }
+	public String getBoardDesc() {
+		return boardDesc;
+	}
 
-    public String getBoardDesc() {
-        return boardDesc;
-    }
+	public void setBoardDesc(String boardDesc) {
+		this.boardDesc = boardDesc;
+	}
 
-    public void setBoardDesc(String boardDesc) {
-        this.boardDesc = boardDesc;
-    }
+	public int getBoardId() {
+		return boardId;
+	}
 
-    public int getTopicNum() {
-        return topicNum;
-    }
+	public void setBoardId(int boardId) {
+		this.boardId = boardId;
+	}
 
-    public void setTopicNum(int topicNum) {
-        this.topicNum = topicNum;
-    }
+	public String getBoardName() {
+		return boardName;
+	}
+
+	public void setBoardName(String boardName) {
+		this.boardName = boardName;
+	}
+
+	public Set<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+
+    
+
 }
